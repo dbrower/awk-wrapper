@@ -15,10 +15,12 @@ func main() {
 		fmt.Println("usage: awk-wrapper <command file> <target files>...")
 		os.Exit(1)
 	}
+
 	commandfile := os.Args[1]
 	fmt.Println("Using awk file", commandfile)
+
 	for _, inputfile := range os.Args[2:] {
-		fmt.Println("Processing", inputfile)
+		fmt.Println("Processing", inputfile, "\n      into", "sierra-"+inputfile)
 		// prepare file input
 		input, err := ioutil.ReadFile(inputfile)
 		if err != nil {
